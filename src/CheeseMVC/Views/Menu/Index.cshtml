@@ -1,0 +1,11 @@
+﻿@model CheeseMVC.Models.Menu
+
+<ul>
+    @foreach (var menu in Model.CheeseMenus)
+    {
+        <li><a asp-controller="Menu" asp-action="*" asp-route-id="menu.ID">@Model.Name</a></li>
+
+    }
+</ul>
+
+<p><a asp-controller="Menu" asp-action="Add">Add a Menu</a></p>
