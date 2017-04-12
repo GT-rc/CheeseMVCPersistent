@@ -74,5 +74,17 @@ namespace CheeseMVC.Controllers
 
             return Redirect("/");
         }
+
+        public IActionResult Edit(int id)
+        {
+            EditCheeseViewModel editCheeseViewModel = new EditCheeseViewModel();
+            return View(editCheeseViewModel);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(EditCheeseViewModel editCheeseViewModel)
+        {
+
+        }
     }
 }
