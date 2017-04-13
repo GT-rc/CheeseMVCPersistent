@@ -1,8 +1,33 @@
 ﻿@model CheeseMVC.ViewModels.EditCheeseViewModel
 
-<h1>Edit Cheese</h1>
+<h1>Edit Cheese: @Model.Cheese.Name</h1>
 
 @{
     ViewBag.Title = "Edit Cheese";
 }
 
+<form asp-controller="Cheese" asp-action="EditPost" method="post">
+
+    <div class="form-group">
+        <label asp-for="@Model.Cheese.Name"></label>
+        <input class="form-control" asp-for="@Model.Cheese.Name" />
+        <span asp-validation-for="@Model.Cheese.Name"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.Cheese.Description"></label>
+        <input class="form-control" asp-for="@Model.Cheese.Description" />
+        <span asp-validation-for="@Model.Cheese.Description"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="@Model.Cheese.CategoryID"></label>
+        <select asp-for="@Model.Cheese.CategoryID" asp-items="@Model.Categories"></select>
+    </div>
+
+    <input type="hidden" value="@Model.Cheese.ID" name="cheeseId" />
+
+
+
+    <input type="submit" value="Update Cheese" />
+
+</form>
